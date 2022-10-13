@@ -1,0 +1,755 @@
+Attached :
+dim ballinplay
+dim ballrelenabled
+dim rst
+dim eg
+dim credit
+dim score
+dim truesc
+dim match(9)
+dim rep
+dim tilt
+dim tiltsens
+dim state
+dim cred
+dim plm
+dim update
+dim digit
+dim tempscore
+dim scn
+dim scn1
+dim bell
+dim points
+dim matchnumb
+dim replay1
+dim replay2
+dim replay3
+dim hisc
+dim xv
+dim bv
+
+sub table1_init
+    replay1= 5500
+    replay2= 7500
+    replay3= 9500
+    r3.text=replay3
+    r2.text=replay2
+    r1.text=replay1
+    loadhs
+    if hisc="" then hisc=5500
+    hstxt.text=hisc
+    if credit="" then credit=0
+    credittxt.text=credit
+    if matchnumb="" then matchnumb=0
+    matchtxt(matchnumb).text=matchnumb
+    scorereel.setvalue(score)
+    credtimer.enabled=true
+end sub
+
+Sub Table1_KeyDown(ByVal keycode)
+
+    if keycode=6 then
+    playsound "coin3"
+    coindelay.enabled=true
+    end if
+
+    if keycode=31 and credit>0 and state=false then
+    credit=credit-1
+    playsound "click"
+    credittxt.text=credit
+    tilt=false
+    bumper1.force=5
+    bumper2.force=5
+    bumper3.force=5
+    bumper4.force=5
+    bumper5.force=5
+    tiltseq.stopplay
+    for i=0 to 12
+    plas(i).isdropped=false
+    next
+    state=true
+    rst=0
+    ballinplay=1
+    playsound "initialize"
+    resettimer.enabled=true
+    end if
+
+If keycode = PlungerKey Then
+Plunger.PullBack
+End If
+
+    if tilt=false and state=true then
+If keycode = LeftFlipperKey Then
+LeftFlipper.RotateToEnd
+LeftFlipper1.RotateToEnd
+PlaySound "FlipperUp"
+playsound "buzz"
+End If
+
+If keycode = RightFlipperKey Then
+RightFlipper.RotateToEnd
+        RightFlipper1.RotateToEnd
+PlaySound "FlipperUp"
+playsound "buzz"
+End If
+    end if
+
+If keycode = LeftTiltKey Then
+Nudge 90, 2
+        checktilt
+End If
+
+If keycode = RightTiltKey Then
+Nudge 270, 2
+        checktilt
+End If
+
+If keycode = CenterTiltKey Then
+Nudge 0, 2
+        checktilt
+End If
+
+End Sub
+
+Sub Table1_KeyUp(ByVal keycode)
+
+If keycode = PlungerKey Then
+Plunger.Fire
+        playsound "plunger"
+End If
+
+If keycode = LeftFlipperKey Then
+LeftFlipper.RotateToStart
+LeftFlipper1.RotateToStart
+stopsound "buzz"
+if tilt= false and state=true then PlaySound "FlipperDown"
+End If
+
+If keycode = RightFlipperKey Then
+RightFlipper.RotateToStart
+RightFlipper1.RotateToStart
+stopsound "buzz"
+        if tilt= false and state=true then PlaySound "FlipperDown"
+End If
+
+End Sub
+
+sub coindelay_timer
+    playsound "click"
+    credit=credit+1
+    if credit>25 then credit=25
+credittxt.text=credit
+    coindelay.enabled=false
+end sub
+
+sub resettimer_timer
+    rst=rst+1
+    scorereel.resettozero
+    if rst=18 then
+    playsound "kickerkick"
+    end if
+    if rst=22 then
+    newgame
+    resettimer.enabled=false
+    end if
+end sub
+
+sub newgame
+    bumper1.force=5
+    bumper2.force=5
+    bumper3.force=5
+    bumper4.force=5
+    bumper5.force=5
+    lsling.isdropped=false
+    rsling.isdropped=false
+    score=0
+    truesc=0
+    eg=0
+    rep=0
+    xv=0
+    sp1.state=lightstateoff
+    sp2.state=lightstateoff
+    sp3.state=lightstateoff
+    sp4.state=lightstateoff
+    go.state=lightstateoff
+    bumper1.state=lightstateoff
+    bumper3.state=lightstateoff
+    bumper2.state=lightstateoff
+    bumper4.state=lightstateoff
+    bumper5.state=lightstateoff
+    credtimer.enabled=false
+    credtxt.text="Ported To VP By Leon Spalding"
+    gamov.text=" "
+    tilttxt.text=" "
+    bip5.text=" "
+    bip1.text="1"
+    for i=0 to 9
+    butlight(i).state=lightstateon
+    if i<6 then xlights(i).state=lightstateoff
+    matchtxt(i).text=" "
+    next
+    nb.CreateBall
+    nb.kick 135,4
+end sub
+
+Sub Drain_Hit()
+    Drain.DestroyBall
+playsound "drainshorter"
+    if (topgate.isdropped)=true then
+    topgate.isdropped=false
+    playsound "relay"
+    go.state=lightstateoff
+    end if
+if (rightflipper.visible)=false then flipopen
+nextball
+End Sub
+
+sub nextball
+    if tilt=true then
+    bumper1.force=7
+    bumper2.force=7
+    bumper3.force=7
+    bumper4.force=7
+    bumper5.force=7
+    tiltseq.stopplay
+    for i=0 to 12
+    plas(i).isdropped=false
+    next
+    tilt=false
+    tilttxt.text=" "
+    end if
+ballinplay=ballinplay+1
+if ballinplay>5 then
+playsound "motorleer"
+eg=1
+ballreltimer.enabled=true
+else
+if state=true and tilt=false then
+playsound "kickerkick"
+ballreltimer.enabled=true
+end if
+select case (ballinplay)
+case 1:
+bip1.text="1"
+case 2:
+bip1.text=" "
+bip2.text="2"
+case 3:
+bip2.text=" "
+bip3.text="3"
+case 4:
+bip3.text=" "
+bip4.text="4"
+case 5:
+bip4.text=" "
+bip5.text="5"
+end select
+end if
+End Sub
+
+sub ballreltimer_timer
+    if eg=1 then
+    matchnum
+bip5.text=" "
+state=false
+gamov.text="GaMe OVeR"
+if truesc>hisc then hisc=truesc
+hstxt.text=hisc
+savehs
+cred=0
+credtimer.enabled=true
+ballreltimer.enabled=false
+    else
+    nb.CreateBall
+nb.kick 135,4
+    ballreltimer.enabled=false
+    end if
+end sub
+
+sub matchnum
+    matchtxt(matchnumb).text=matchnumb
+    if (matchnumb)=(score mod 10) then
+    credit=credit+1
+    playsound "knocke"
+    if credit>25 then credit=25
+credittxt.text=credit
+    playsound "click"
+    end if
+end sub
+
+sub scoreone (points)
+    if tilt=false then
+    scorereel.addvalue(1)
+    if (sp1.state)=lightstateon and xv>5 then
+    sp1.state=lightstateoff
+    sp2.state=lightstateon
+    else
+    if xv>5 then sp1.state=lightstateon:sp2.state=lightstateoff
+    end if
+    matchnumb=matchnumb+1
+    if matchnumb=10 then matchnumb=0
+    tallysc (points)
+    end if
+end sub
+
+sub tallysc (points)
+    score=score+points
+    truesc=truesc+points
+    if score=>10000 then
+    score=score-10000
+    rep=0
+    end if
+    checkreplay
+end sub
+
+sub addscore(points)
+    if tilt=false then
+    bell=0
+    if points = 10 or points = 100 then scn=1
+    if points = 10 then
+    scorereel.addvalue(10)
+    bell=2
+    end if
+    if points = 100 then
+    scorereel.addvalue(100)
+    bell=3
+    end if
+    if points = 300 then
+    scorereel.addvalue(300)
+    bell=3
+    scn=3
+    playsound "motorshort1s"
+    end if
+    scn1=0
+    scntimer.enabled=true
+    tallysc (points)
+    checkreplay
+    end if
+end sub
+
+sub checkreplay
+    if score=>replay1 and rep=0 then
+    credit=credit+1
+    playsound "knocke"
+    if credit>25 then credit=25
+credittxt.text=credit
+    rep=1
+    playsound "click"
+    end if
+    if score=>replay2 and rep=1 then
+    credit=credit+1
+    playsound "knocke"
+    if credit>25 then credit=25
+credittxt.text=credit
+    rep=2
+    playsound "click"
+    end if
+    if score=>replay3 and rep=2 then
+    credit=credit+1
+    playsound "knocke"
+    if credit>25 then credit=25
+credittxt.text=credit
+    rep=3
+    playsound "click"
+    end if
+end sub
+
+sub scntimer_timer
+    scn1=scn1 + 1
+    if bell=2 then
+    playsound "gigibump3"
+    matchnumb=matchnumb+1
+    if matchnumb=10 then matchnumb=0
+    end if
+    if bell=3 then playsound "gigibump4"
+    if scn1=scn then
+    scntimer.enabled=false
+    end if
+end sub
+
+Sub CheckTilt
+If Tilttimer.Enabled = True Then
+TiltSens = TiltSens + 1
+if TiltSens = 2 Then
+Tilt = True
+tilttxt.text="TiLT"
+playsound "tilt"
+if truesc>hisc then hisc=truesc
+hstxt.text=hisc
+turnoff
+End If
+Else
+TiltSens = 0
+Tilttimer.Enabled = True
+End If
+End Sub
+
+Sub Tilttimer_Timer()
+Tilttimer.Enabled = False
+End Sub
+
+sub turnoff
+    bumper1.force=0
+    bumper2.force=0
+    bumper3.force=0
+    bumper4.force=0
+    bumper5.force=0
+    if (rightflipper.visible)=false then flipopen
+    tiltseq.play seqalloff
+    for i=0 to 12
+    plas(i).isdropped=true
+    next
+    if (topgate.isdropped)=true then
+    topgate.isdropped=false
+    playsound "relay"
+    go.state=lightstateoff
+    end if
+end sub
+
+sub flipclose
+    if tilt=false then
+    if (rightflipper.visible)=true then playsound "zclose"
+    rightflipper.visible=false
+    rightflipper1.visible=true
+    leftflipper.visible=false
+    leftflipper1.visible=true
+    fp1.isdropped=false
+    fp2.isdropped=false
+    end if
+end sub
+
+sub flipopen
+    if (rightflipper.visible)=false then playsound "zopen"
+    rightflipper.visible=true
+    rightflipper1.visible=false
+    leftflipper.visible=true
+    leftflipper1.visible=false
+    fp1.isdropped=true
+    fp2.isdropped=true
+end sub
+
+sub lfo_hit
+    scoreone 1
+    flipopen
+end sub
+
+sub rfo_hit
+    scoreone 1
+    flipopen
+end sub
+
+sub lfc_hit
+    scoreone 1
+    flipclose
+end sub
+
+sub rfc_hit
+    scoreone 1
+    flipclose
+end sub
+
+sub tt_hit
+    if (topgate.isdropped)=false then
+    topgate.isdropped=true
+    playsound "relay"
+    go.state=lightstateon
+    end if
+    addscore 100
+end sub
+
+sub gt_hit
+    if (sp4.state)=lightstateon and go.state=lightstateon then
+    credit=credit+1
+    playsound "knocke"
+    if credit>25 then credit=25
+credittxt.text=credit
+    playsound "click"
+    else
+    if go.state=lightstateon then addscore 300
+    end if
+    topgate.isdropped=false
+    playsound "relay"
+    go.state=lightstateoff
+    if (rightflipper.visible)=false then flipopen
+end sub
+
+Sub LSling_Slingshot()
+PlaySound "Bumper"
+scoreone 1
+End Sub
+
+Sub RSling_Slingshot()
+PlaySound "Bumper"
+scoreone 1
+End Sub
+
+sub bumper1_hit
+    if (bumper1.state)=lightstateon then
+    addscore 10
+    else
+    scoreone 1
+    end if
+    if tilt=false then playsound "jet2"
+end sub
+
+sub bumper2_hit
+    if (bumper2.state)=lightstateon then
+    addscore 10
+    else
+    scoreone 1
+    end if
+    if tilt=false then playsound "jet2"
+end sub
+
+sub bumper3_hit
+    if (bumper3.state)=lightstateon then
+    addscore 10
+    else
+    scoreone 1
+    end if
+    if tilt=false then playsound "jet2"
+end sub
+
+sub bumper4_hit
+    if (bumper4.state)=lightstateon then
+    addscore 100
+    else
+    addscore 10
+    end if
+    if tilt=false then playsound "jet2"
+end sub
+
+sub bumper5_hit
+    if (bumper5.state)=lightstateon then
+    addscore 10
+    else
+    scoreone 1
+    end if
+    if tilt=false then playsound "jet2"
+end sub
+
+sub lout_hit
+    if (sp1.state)=lightstateon then
+    credit=credit+1
+    playsound "knocke"
+    if credit>25 then credit=25
+credittxt.text=credit
+    playsound "click"
+    else
+    addscore 100
+    end if
+end sub
+
+sub rout_hit
+    if (sp2.state)=lightstateon then
+    credit=credit+1
+    playsound "knocke"
+    if credit>25 then credit=25
+credittxt.text=credit
+    playsound "click"
+    else
+    addscore 100
+    end if
+end sub
+
+sub llr_slingshot
+    scoreone 1
+end sub
+
+sub lrr_slingshot
+    scoreone 1
+end sub
+
+sub ulr_slingshot
+    scoreone 1
+end sub
+
+sub urr_slingshot
+    scoreone 1
+end sub
+
+sub but1_hit
+    if (bl1.state)=lightstateon then
+    bl1.state=lightstateoff
+    bl1a.state=lightstateoff
+    checkaward
+    addscore 10
+    else
+    scoreone 1
+    end if
+end sub
+
+sub but2_hit
+    if (bl2.state)=lightstateon then
+    bl2.state=lightstateoff
+    bl2a.state=lightstateoff
+    checkaward
+    addscore 10
+    else
+    scoreone 1
+    end if
+end sub
+
+sub but3_hit
+    if (bl3.state)=lightstateon then
+    bl3.state=lightstateoff
+    bl3a.state=lightstateoff
+    checkaward
+    addscore 10
+    else
+    scoreone 1
+    end if
+end sub
+
+sub but4_hit
+    if (bl4.state)=lightstateon then
+    bl4.state=lightstateoff
+    bl4a.state=lightstateoff
+    checkaward
+    addscore 10
+    else
+    scoreone 1
+    end if
+end sub
+
+sub but5_hit
+    if (bl5.state)=lightstateon then
+    bl5.state=lightstateoff
+    bl5a.state=lightstateoff
+    checkaward
+    addscore 10
+    else
+    scoreone 1
+    end if
+end sub
+
+sub tl1_hit
+    if (bl1a.state)=lightstateon then
+    bl1.state=lightstateoff
+    bl1a.state=lightstateoff
+    checkaward
+    end if
+    addscore 100
+end sub
+
+sub tl2_hit
+    if (bl2a.state)=lightstateon then
+    bl2.state=lightstateoff
+    bl2a.state=lightstateoff
+    checkaward
+    end if
+    addscore 100
+end sub
+
+sub tl3_hit
+    if (bl3a.state)=lightstateon then
+    bl3.state=lightstateoff
+    bl3a.state=lightstateoff
+    checkaward
+    end if
+    addscore 100
+end sub
+
+sub tl4_hit
+    if (bl4a.state)=lightstateon then
+    bl4.state=lightstateoff
+    bl4a.state=lightstateoff
+    checkaward
+    end if
+    addscore 100
+end sub
+
+sub but5a_hit
+    if (bl5a.state)=lightstateon then
+    bl5.state=lightstateoff
+    bl5a.state=lightstateoff
+    checkaward
+    addscore 10
+    else
+    scoreone 1
+    end if
+end sub
+
+sub checkaward
+    bv=0
+    for i=0 to 4
+    if (butlight(i).state)=lightstateoff then
+    bv=bv+1
+    else
+    bv=0
+    end if
+    next
+    if bv=5 then
+    playsound "bigbell"
+    xv=xv+1
+    if xv>9 then xv=9
+    xlights(xv-1).state=lightstateon
+    if (sp3.state)=lightstateon then
+    credit=credit+1
+    playsound "knocke"
+    if credit>25 then credit=25
+credittxt.text=credit
+    playsound "click"
+    else
+    addscore 300
+    end if
+    for i=0 to 9
+    butlight(i).state=lightstateon
+    next
+    end if
+    if xv=4 then bumper1.state=lightstateon:bumper5.state=lightstateon
+    if xv=5 then sp4.state=lightstateon:bumper2.state=lightstateon:bumper3.state=lightstateon
+    if xv=6 then sp1.state=lightstateon:bumper4.state=lightstateon
+    if xv=7 then sp3.state=lightstateon
+end sub
+
+sub credtimer_timer
+    cred=cred+1
+    if cred=1 then credtxt.text="Ported To VP By Leon Spalding"
+    if cred=2 then credtxt.text="'5' Add Coin 'S' Start game"
+    if cred=3 then credtxt.text="Thanx LUVTHATAPEX (table pics)"
+    if cred=4 then credtxt.text="Thanx Randy & Black (VP GODS)"
+    if cred=5 then credtxt.text="Thanx All At Visual Pinball Forum"
+    if cred=6 then credtxt.text="'5' Add Coin 'S' Start game"
+    if cred=7 then credtxt.text="An 'IR Pinball' Preserved Classic"
+    if cred=8 then credtxt.text="'IR Pinball' are:"
+    if cred=9 then credtxt.text="Duglis, Steveir, JonPurpleHaze,"
+    if cred=10 then credtxt.text="Robair, Ash, Danz & Leon"
+    if cred=11 then credtxt.text="http://irpinball.ztnet.com"
+    if cred=11 then cred=0
+end sub
+
+sub savehs
+    savevalue "Doozie", "credit", credit
+    savevalue "Doozie", "score", score
+    savevalue "Doozie", "hiscore", hisc
+    savevalue "Doozie", "match", matchnumb
+end sub
+
+sub loadhs
+    dim temp
+    temp = LoadValue("Doozie", "credit")
+    If (temp <> "") then credit = CDbl(temp)
+    temp = LoadValue("Doozie", "score")
+    If (temp <> "") then score = CDbl(temp)
+    temp = LoadValue("Doozie", "hiscore")
+    If (temp <> "") then hisc = CDbl(temp)
+    temp = LoadValue("Doozie", "match")
+    If (temp <> "") then matchnumb = CDbl(temp)
+end sub
+
+sub ballhome_hit
+    bb.isdropped=true
+    ballrelenabled=1
+end sub
+
+sub ballrel_hit
+    if ballrelenabled=1 then
+    playsound "launchball"
+    ballrelenabled=0
+    end if
+end sub
+
+sub ballout_hit
+    bb.isdropped=false
+end sub

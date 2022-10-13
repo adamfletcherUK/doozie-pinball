@@ -32,4 +32,4 @@ change this to 'add a ball'
 to match that with the last digit of your score. If you match you get a free game.
 
 I will be figuring out the entire operation of the game in order to re-create the game logic and operation in code 
-(probably in Python, potentially C also if I use an Ardunio)
+(probably in Python, potentially C also if I use an Arduino)

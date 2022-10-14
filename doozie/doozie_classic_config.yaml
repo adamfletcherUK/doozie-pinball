@@ -1,0 +1,25 @@
+MetaData:
+  DefaultDisplay: 1968
+  HighScore: 0000
+  Plays: 0
+PopBumpers:
+  TopLeft:
+    color: 'red'
+    points_lit: 10
+    points_unlit: 1
+  TopRight:
+    color: 'yellow'
+    points_lit: 10
+    points_unlit: 1
+  BottomLeft:
+    color: 'yellow'
+    points_lit: 10
+    points_unlit: 1
+  Center:
+    color: 'green'
+    points_lit: 100
+    points_unlit: 10
+  BottomRight:
+    color: 'red'
+    points_lit: 10
+    points_unlit: 1

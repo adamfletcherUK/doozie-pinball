@@ -48,85 +48,87 @@ See if they match the Excel I found.
 - Finally: Special light will turn off and cannot be claimed until next X
 
 ## 1-5 Lights
-- When lit score = 10
-- When unlit score = 1
+- When lit score = `10`
+- When unlit score = `1`
 - **^^ IS THIS CORRECT^^**
 
 ## Scoring Settings
-True** denotes True dependent upon Adjuster!
-True^^ denotes if the switch is set to liberal, if not False
+- `True**` denotes True dependent upon Adjuster!
+- `True^^` denotes if the switch is set to liberal, if not False
+
+**This doesn't take into account physical parts moving which I might want to add to keep feel authentic**
 
 ### 0X:
-- Red Pops [lit = True, points = 10]
-- Yellow Pops [lit = True, points = 10]
-- Green Pop [lit = False, points = 10]
-- Bumpers [points = 1]
-- Specials [gate = False, autoreplay = False, outlane = False]
-- Lights [None]
+- Red Pops [`lit = True`, `points = 10`]
+- Yellow Pops [`lit = True`, `points = 10`]
+- Green Pop [`lit = False`, `points = 10`]
+- Bumpers [`points = 1`]
+- Specials [`gate = False`, `autoreplay = False`, `outlane = False`]
+- Lights [`None`]
 
 ### 1X:
-- Red Pops [lit = False, points = 1]
-- Yellow Pops [lit = False, points = 1]
-- Green Pop [lit = True, points = 100]
-- Bumpers [points = 1]
-- Specials [gate = False, autoreplay = False, outlane = False]
-- Lights [1X]
+- Red Pops [`lit = False`, `points = 1`]
+- Yellow Pops [`lit = False`, `points = 1`]
+- Green Pop [`lit = True`, `points = 100`]
+- Bumpers [`points = 1`]
+- Specials [`gate = False`, `autoreplay = False`, `outlane = False`]
+- Lights [`1X`]
 
 ### 2X:
-- Red Pops [lit = False, points = 1]
-- Yellow Pops [lit = True, points = 10]
-- Green Pop [lit = False, points = 10]
-- Bumpers [points = 1]
-- Specials [gate = True**, autoreplay = False, outlane = False]
-- Lights [2X]
+- Red Pops [`lit = False`, `points = 1`]
+- Yellow Pops [`lit = True`, `points = 10`]
+- Green Pop [`lit = False`, `points = 10`]
+- Bumpers [`points = 1`]
+- Specials [`gate = True**`, `autoreplay = False`, `outlane = False`]
+- Lights [`2X`]
 
 ### 3X:
-- Red Pops [lit = True, points = 10]
-- Yellow Pops [lit = False, points = 1]
-- Green Pop [lit = False, points = 10]
-- Bumpers [points = 1]
-- Specials [gate = True**, autoreplay = True**, outlane = False]
-- Lights [3X]
+- Red Pops [`lit = True`, `points = 10`]
+- Yellow Pops [`lit = False`, `points = 1`]
+- Green Pop [`lit = False`, `points = 10`]
+- Bumpers [`points = 1`]
+- Specials [`gate = True**`, `autoreplay = True**`, `outlane = False`]
+- Lights [`3X`]
 
 ### 4X:
-- Red Pops [lit = False, points = 1]
-- Yellow Pops [lit = False, points = 1]
-- Green Pop [lit = True^^, points = 100]
-- Bumpers [points = 1]
-- Specials [gate = True**, autoreplay = True**, outlane = True**]
-- Lights [4X]
+- Red Pops [`lit = False`, `points = 1`]
+- Yellow Pops [`lit = False`, `points = 1`]
+- Green Pop [`lit = True^^`, `points = 100`]
+- Bumpers [`points = 1`]
+- Specials [`gate = True**`, `autoreplay = True**`, `outlane = True**`]
+- Lights [`4X`]
 
 ### 5X:
-- Red Pops [lit = False, points = 1]
-- Yellow Pops [lit = False, points = 1]
-- Green Pop [lit = False, points = 10]
-- Bumpers [points = 1]
-- Specials [gate = True**, autoreplay = True**, outlane = True**]
-- Lights [5X]
+- Red Pops [`lit = False`, `points = 1`]
+- Yellow Pops [`lit = False`, `points = 1`]
+- Green Pop [`lit = False`, `points = 10`]
+- Bumpers [`points = 1`]
+- Specials [`gate = True**`, `autoreplay = True**`, `outlane = True**`]
+- Lights [`5X`]
 
 ### 6X:
-- Red Pops [lit = False, points = 1]
-- Yellow Pops [lit = False, points = 1]
-- Green Pop [lit = False, points = 10]
-- Bumpers [points = 1]
-- Specials [gate = False, autoreplay = True**, outlane = True**]
-- Lights [6X]
+- Red Pops [`lit = False`, `points = 1`]
+- Yellow Pops [`lit = False`, `points = 1`]
+- Green Pop [`lit = False`, `points = 10`]
+- Bumpers [`points = 1`]
+- Specials [`gate = False`, `autoreplay = True**`, `outlane = True**`]
+- Lights [`6X`]
 
 ### 7X:
-- Red Pops [lit = False, points = 1]
-- Yellow Pops [lit = False, points = 1]
-- Green Pop [lit = False, points = 10]
-- Bumpers [points = 1]
-- Specials [gate = False, autoreplay = True**, outlane = True**]
-- Lights [7X]
+- Red Pops [`lit = False`, `points = 1`]
+- Yellow Pops [`lit = False`, `points = 1`]
+- Green Pop [`lit = False`, `points = 10`]
+- Bumpers [`points = 1`]
+- Specials [`gate = False`, `autoreplay = True**`, `outlane = True**`]
+- Lights [`7X`]
 
 ### 8X:
-- Red Pops [lit = False, points = 1]
-- Yellow Pops [lit = False, points = 1]
-- Green Pop [lit = False, points = 10]
-- Bumpers [points = 1]
-- Specials [gate = False, autoreplay = False, outlane = False]
-- Lights [8X]
+- Red Pops [`lit = False`, `points = 1`]
+- Yellow Pops [`lit = False`, `points = 1`]
+- Green Pop [`lit = False`, `points = 10`]
+- Bumpers [`points = 1`]
+- Specials [`gate = False`, `autoreplay = False`, `outlane = False`]
+- Lights [`8X`]
 - Notes: Does this just reset to 0? does it score a replay??
 
 
@@ -135,3 +137,34 @@ True^^ denotes if the switch is set to liberal, if not False
 - playfiel rollerover switches are 100 points
 - how much are targets?
 
+### Playfield Mechanical Parts
+- 9 wire rollover switches
+- 6 plastic rollover switches
+- 5 targets
+- 5 pop bumpers
+- 1 mechanical gate
+- 4 bumper switches
+- 4 slingshot switches
+- 2 slingshot coils
+- 2 flipper coils
+- 2 flipper switches
+- 2 zipper flipper coils
+- 1 ball through coil
+- 37 bulbs
+
+### Backbox Parts
+- 46 bulbs
+- 1 replay reel (2 coils)
+- 4 score reels (4 coils)
+
+### Sounds
+- 2 bell coils
+- 1 knocker
+
+### Tilt Mechs
+
+### Coin Door Mechs
+
+### Misc
+- 1 total play meter
+- Any of the physical mechs I want to keep to sound authentic

@@ -4,22 +4,236 @@ MetaData:
   Plays: 0
 PopBumpers:
   TopLeft:
+    type: 'pop bumper'
+    name: 'TopLeftPopBumper'
     color: 'red'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
     points_lit: 10
     points_unlit: 1
+    starts_lit: False
   TopRight:
+    type: 'pop bumper'
+    name: 'TopRightPopBumper'
     color: 'yellow'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
     points_lit: 10
     points_unlit: 1
+    starts_lit: True
   BottomLeft:
+    type: 'pop bumper'
+    name: 'BottomLeftPopBumper'
     color: 'yellow'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
     points_lit: 10
     points_unlit: 1
+    starts_lit: True
   Center:
+    type: 'pop bumper'
+    name: 'CenterPopBumper'
     color: 'green'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
     points_lit: 100
     points_unlit: 10
+    starts_lit: False
   BottomRight:
+    type: 'pop bumper'
+    name: 'BottomRightPopBumper'
     color: 'red'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
     points_lit: 10
     points_unlit: 1
+    starts_lit: True
+Slingshots:
+  Left:
+    type: 'slingshot'
+    name: 'LeftSlingshot'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 1
+    points_unlit: 1
+    starts_lit: True
+  Right:
+    type: 'slingshot'
+    name: 'RightSlingshot'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 1
+    points_unlit: 1
+    starts_lit: True
+Switches:
+  Gate:
+    type: 'targetswitch'
+    name: 'GateTargetSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: ??
+    points_unlit: ??
+    starts_lit: False
+  LeftOpenZipper:
+    type: 'targetswitch'
+    name: 'LeftOpenZipper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: ??
+    points_unlit: ??
+    starts_lit: False
+  LeftCloseZipper:
+    type: 'targetswitch'
+    name: 'LeftCloseZipper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: ??
+    points_unlit: ??
+    starts_lit: False
+  RightOpenZipper:
+    type: 'targetswitch'
+    name: 'LeftOpenZipper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: ??
+    points_unlit: ??
+    starts_lit: False
+  RightCloseZipper:
+    type: 'targetswitch'
+    name: 'LeftCloseZipper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: ??
+    points_unlit: ??
+    starts_lit: False
+  OnePlayfieldRollover:
+    type: 'rolloverswitch'
+    name: 'OnePlayfieldRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 10
+    points_unlit: 1
+    starts_lit: True
+  TwoPlayfieldRollover:
+    type: 'rolloverswitch'
+    name: 'TwoPlayfieldRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 10
+    points_unlit: 1
+    starts_lit: True
+  ThreePlayfieldRollover:
+    type: 'rolloverswitch'
+    name: 'ThreePlayfieldRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 10
+    points_unlit: 1
+    starts_lit: True
+  FourPlayfieldRollover:
+    type: 'rolloverswitch'
+    name: 'FourPlayfieldRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 10
+    points_unlit: 1
+    starts_lit: True
+  FivePlayfieldRollover:
+    type: 'rolloverswitch'
+    name: 'FivePlayfieldRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 10
+    points_unlit: 1
+    starts_lit: True
+  FivePlayfieldRolloverTop:
+    type: 'rolloverswitch'
+    name: 'FivePlayfieldRolloverSwitchTop'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 10
+    points_unlit: 1
+    starts_lit: True
+  OneLaneRollover:
+    type: 'laneswitch'
+    name: 'OneLaneRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 100
+    points_unlit: 100
+    starts_lit: False
+  TwoLaneRollover:
+    type: 'laneswitch'
+    name: 'TwoLaneRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 100
+    points_unlit: 100
+    starts_lit: False
+  ThreeLaneRollover:
+    type: 'laneswitch'
+    name: 'ThreeLaneRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 100
+    points_unlit: 100
+    starts_lit: False
+  FourLaneRollover:
+    type: 'laneswitch'
+    name: 'FourLaneRolloverSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 100
+    points_unlit: 100
+    starts_lit: False
+  LeftOutlaneSwitch:
+    type: 'specialswitch'
+    name: 'LeftOutlaneSpecialSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 300
+    points_unlit: 300
+    starts_lit: False
+  RightOutlaneSwitch:
+    type: 'specialswitch'
+    name: 'RightOutlaneSpecialSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 300
+    points_unlit: 300
+    starts_lit: False
+  ShooterLaneSwitch:
+    type: 'specialswitch'
+    name: 'ShooterLaneSpecialSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 100
+    points_unlit: 100
+    starts_lit: False
+Bumpers:
+

@@ -1,9 +1,9 @@
 import yaml
 
 try:
-    from PlayfieldElements import PopBumper, SlingShot, Switch
+    from PlayfieldElements import PopBumper, SlingShot, Switch, RubberBumper
 except:
-    from doozie.PlayfieldElements import PopBumper, SlingShot, Switch
+    from doozie.PlayfieldElements import PopBumper, SlingShot, Switch, RubberBumper
 
 class Doozie():
     def __init__(self, yaml_config):
@@ -15,6 +15,7 @@ class Doozie():
         self._init_pop_bumpers()
         self._init_slingshots()
         self._init_switches()
+        self._init_rubber_bumpers()
 
     def _init_pop_bumpers(self):
         self.TopLeftPop = PopBumper(self.my_dict['PopBumpers']['TopLeft'])
@@ -51,6 +52,15 @@ class Doozie():
         self.LeftOutlaneSwitch = Switch(self.my_dict['Switches']['LeftOutlaneSwitch'])
         self.RightOutlaneSwitch = Switch(self.my_dict['Switches']['RightOutlaneSwitch'])
         self.ShooterLaneSpecialSwitch = Switch(self.my_dict['Switches']['ShooterLaneSwitch'])
+
+    def _init_rubber_bumpers(self):
+        self.TopLeftBumper = RubberBumper(self.my_dict['Bumpers']['TopLeftBumper'])
+        self.TopRightBumper = RubberBumper(self.my_dict['Bumpers']['TopRightBumper'])
+        self.MidLeftBumper = RubberBumper(self.my_dict['Bumpers']['MidLeftBumper'])
+        self.MidRightBumper = RubberBumper(self.my_dict['Bumpers']['MidRightBumper'])
+        self.BottomLeftBumper = RubberBumper(self.my_dict['Bumpers']['BottomLeftBumper'])
+        self.BottomRightBumper = RubberBumper(self.my_dict['Bumpers']['BottomRightBumper'])
+
 
     #Todo: List the things
     # Add the bumpers

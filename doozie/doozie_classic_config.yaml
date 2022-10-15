@@ -236,4 +236,57 @@ Switches:
     points_unlit: 100
     starts_lit: False
 Bumpers:
-
+  TopLeftBumper:
+    type: 'rubberbumper'
+    name: 'TopLeftRubberBumper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 1
+    points_unlit: 1
+    starts_lit: False
+  TopRightBumper:
+    type: 'rubberbumper'
+    name: 'TopRightRubberBumper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 1
+    points_unlit: 1
+    starts_lit: False
+  MidLeftBumper:
+    type: 'rubberbumper'
+    name: 'MidLeftRubberBumper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 1
+    points_unlit: 1
+    starts_lit: False
+  MidRightBumper:
+    type: 'rubberbumper'
+    name: 'MidRightRubberBumper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 1
+    points_unlit: 1
+    starts_lit: False
+  BottomLeftBumper:
+    type: 'rubberbumper'
+    name: 'BottomLeftRubberBumper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 1
+    points_unlit: 1
+    starts_lit: False
+  BottomRightBumper:
+    type: 'rubberbumper'
+    name: 'BottomRightRubberBumper'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 1
+    points_unlit: 1
+    starts_lit: False

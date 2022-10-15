@@ -29,3 +29,7 @@ class SlingShot(PlayfieldElement):
 class Switch(PlayfieldElement):
     def __init__(self, config_dict):
         super().__init__(config_dict)
+
+class RubberBumper(PlayfieldElement):
+    def __init__(self, config_dict):
+        super().__init__(config_dict)

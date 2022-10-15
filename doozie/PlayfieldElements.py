@@ -34,6 +34,11 @@ class SingleSwitch(PlayfieldElement):
         super().__init__(config_dict)
 
 
+class SingleRubberBumper(PlayfieldElement):
+    def __init__(self,config_dict):
+        super().__init__(config_dict)
+
+
 class PopBumpers:
     def __init__(self, config_dict):
         self.TopLeftPop = SinglePopBumper(config_dict['PopBumpers']['TopLeft'])
@@ -73,4 +78,14 @@ class Switches:
         self.LeftOutlaneSwitch = SingleSwitch(config_dict['Switches']['LeftOutlaneSwitch'])
         self.RightOutlaneSwitch = SingleSwitch(config_dict['Switches']['RightOutlaneSwitch'])
         self.ShooterLaneSpecialSwitch = SingleSwitch(config_dict['Switches']['ShooterLaneSwitch'])
+
+
+class RubberBumpers:
+    def __init__(self, config_dict):
+        self.TopLeftBumper = SingleRubberBumper(config_dict['Bumpers']['TopLeftBumper'])
+        self.TopRightBumper = SingleRubberBumper(config_dict['Bumpers']['TopRightBumper'])
+        self.MidLeftBumper = SingleRubberBumper(config_dict['Bumpers']['MidLeftBumper'])
+        self.MidRightBumper = SingleRubberBumper(config_dict['Bumpers']['MidRightBumper'])
+        self.BottomLeftBumper = SingleRubberBumper(config_dict['Bumpers']['BottomLeftBumper'])
+        self.BottomRightBumper = SingleRubberBumper(config_dict['Bumpers']['BottomRightBumper'])
 

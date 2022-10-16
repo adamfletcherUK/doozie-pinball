@@ -79,8 +79,8 @@ Switches:
     light_address: None
     switch_pin: None
     relay_pin: None
-    points_lit: ??
-    points_unlit: ??
+    points_lit: 100
+    points_unlit: 100
     starts_lit: False
   LeftOpenZipper:
     type: 'targetswitch'
@@ -88,8 +88,8 @@ Switches:
     light_address: None
     switch_pin: None
     relay_pin: None
-    points_lit: ??
-    points_unlit: ??
+    points_lit: 10
+    points_unlit: 10
     starts_lit: False
   LeftCloseZipper:
     type: 'targetswitch'
@@ -97,8 +97,8 @@ Switches:
     light_address: None
     switch_pin: None
     relay_pin: None
-    points_lit: ??
-    points_unlit: ??
+    points_lit: 10
+    points_unlit: 10
     starts_lit: False
   RightOpenZipper:
     type: 'targetswitch'
@@ -106,8 +106,8 @@ Switches:
     light_address: None
     switch_pin: None
     relay_pin: None
-    points_lit: ??
-    points_unlit: ??
+    points_lit: 10
+    points_unlit: 10
     starts_lit: False
   RightCloseZipper:
     type: 'targetswitch'
@@ -115,8 +115,8 @@ Switches:
     light_address: None
     switch_pin: None
     relay_pin: None
-    points_lit: ??
-    points_unlit: ??
+    points_lit: 10
+    points_unlit: 10
     starts_lit: False
   OnePlayfieldRollover:
     type: 'rolloverswitch'
@@ -374,6 +374,30 @@ GameElements:
     name: 'KnockerGameElement'
     switch_pin: None
     relay_pin: None
+  BallReturnCoil:
+    type: 'gameelement'
+    name: 'BallReturnCoilGameElement'
+    switch_pin: None
+    relay_pin: None
+  BallTroughSwitch:
+    type: 'gameelement'
+    name: 'BallTroughSwitchGameElement'
+    switch_pin: None
+    relay_pin: None
+  BallPlungerSwitch:
+    type: 'gameelement'
+    name: 'BallPlungerSwitchGameElement'
+    switch_pin: None
+    relay_pin: None
+  StartButton:
+    type: 'gameelement'
+    name: 'StartButtonGameElement'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 0
+    points_unlit: 0
+    starts_lit: False
 Tilt:
   TiltBob:
     type: 'TiltSwitch'
@@ -405,6 +429,35 @@ Tilt:
   PlayfieldSlam:
     type: 'TiltSwitch'
     name: 'PlayfieldSlamSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 0
+    points_unlit: 0
+    starts_lit: False
+Flippers:
+  LeftFlipperCoil:
+    type: 'flipper'
+    name: 'LeftFlipperCoil'
+    switch_pin: None
+    relay_pin: None
+  RightFlipperCoil:
+    type: 'flipper'
+    name: 'RightFlipperCoil'
+    switch_pin: None
+    relay_pin: None
+  LeftFlipperSwitch:
+    type: 'flipper'
+    name: 'LeftFlipperSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 0
+    points_unlit: 0
+    starts_lit: False
+  RightlipperSwitch:
+    type: 'flipper'
+    name: 'RightFlipperSwitch'
     light_address: None
     switch_pin: None
     relay_pin: None

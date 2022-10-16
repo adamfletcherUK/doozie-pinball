@@ -129,6 +129,18 @@ class GameElements:
     def __init__(self, config_dict):
         self.Knocker = SingleGameElement(config_dict['GameElements']['Knocker'])
         self.BigBell = SingleGameElement(config_dict['GameElements']['BigBell'])
+        self.BallReturnCoil = SingleGameElement(config_dict['GameElements']['BallReturnCoil'])
+        self.BallTroughSwitch = SingleGameElement(config_dict['GameElements']['BallTroughSwitch'])
+        self.BallPlungerSwitch = SingleGameElement(config_dict['GameElements']['BallPlungerSwitch'])
+        self.StartButton = SingleSwitch(config_dict['GameElements']['StartButton'])
+
+class Flippers:
+    def __init__(self,config_dict):
+        self.LeftFlipperCoil = SingleGameElement(config_dict['Flippers']['LeftFlipperCoil'])
+        self.RightFlipperCoil = SingleGameElement(config_dict['Flippers']['LeftFlipperCoil'])
+        self.LeftFlipperSwitch = SingleSwitch(config_dict['Flippers']['LeftFlipperSwitch'])
+        self.RightFlipperSwitch = SingleSwitch(config_dict['Flippers']['LeftFlipperSwitch'])
+
 
 class TiltSwitches:
     def __init__(self, config_dict):

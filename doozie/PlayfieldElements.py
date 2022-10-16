@@ -25,6 +25,9 @@ class SinglePopBumper(PlayfieldElement):
 
 
 class SingleSlingShot(PlayfieldElement):
+    '''
+    This is here as a base class incase I want to add specific functions to these elements
+    '''
     def __init__(self, config_dict):
         super().__init__(config_dict)
 
@@ -37,6 +40,23 @@ class SingleSwitch(PlayfieldElement):
 class SingleRubberBumper(PlayfieldElement):
     def __init__(self,config_dict):
         super().__init__(config_dict)
+
+
+class SingleLight:
+    def __init__(self, config_dict):
+        self.type = config_dict['type']
+        self.name = config_dict['name']
+        self.led_color = 'White'
+        self.light_address = None
+        self.is_lit = config_dict['starts_lit']
+
+
+class SingleGameElement:
+    def __init__(self, config_dict):
+        self.type = config_dict['type']
+        self.name = config_dict['name']
+        self.switch_pin = None
+        self.relay_pin = None
 
 
 class PopBumpers:
@@ -88,4 +108,35 @@ class RubberBumpers:
         self.MidRightBumper = SingleRubberBumper(config_dict['Bumpers']['MidRightBumper'])
         self.BottomLeftBumper = SingleRubberBumper(config_dict['Bumpers']['BottomLeftBumper'])
         self.BottomRightBumper = SingleRubberBumper(config_dict['Bumpers']['BottomRightBumper'])
+
+
+class Lights:
+    def __init__(self, config_dict):
+        self.X1Light = SingleLight(config_dict['Lights']['X1Light'])
+        self.X2Light = SingleLight(config_dict['Lights']['X2Light'])
+        self.X3Light = SingleLight(config_dict['Lights']['X3Light'])
+        self.X4Light = SingleLight(config_dict['Lights']['X4Light'])
+        self.X5Light = SingleLight(config_dict['Lights']['X5Light'])
+        self.X6Light = SingleLight(config_dict['Lights']['X6Light'])
+        self.X7Light = SingleLight(config_dict['Lights']['X7Light'])
+        self.X8Light = SingleLight(config_dict['Lights']['X8Light'])
+        self.LeftOutlaneSpecialLight = SingleLight(config_dict['Lights']['LeftOutlaneSpecialLight'])
+        self.RightOutlaneSpecialLight= SingleLight(config_dict['Lights']['RightOutlaneSpecialLight'])
+        self.AutoReplaySpecialLight = SingleLight(config_dict['Lights']['AutoReplaySpecialLight'])
+        self.GateSpecialLight = SingleLight(config_dict['Lights']['GateSpecialLight'])
+
+class GameElements:
+    def __init__(self, config_dict):
+        self.Knocker = SingleGameElement(config_dict['GameElements']['Knocker'])
+        self.BigBell = SingleGameElement(config_dict['GameElements']['BigBell'])
+
+class TiltSwitches:
+    def __init__(self, config_dict):
+        self.TiltBob = SingleSwitch(config_dict['Tilt']['TiltBob'])
+        self.TiltBall = SingleSwitch(config_dict['Tilt']['TiltBall'])
+        self.CoinDoorSlam = SingleSwitch(config_dict['Tilt']['CoinDoorSlam'])
+        self.PlayfieldSlam = SingleSwitch(config_dict['Tilt']['PlayfieldSlam'])
+
+
+
 

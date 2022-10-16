@@ -1,8 +1,8 @@
 import yaml
 try:
-    from PlayfieldElements import PopBumpers, Slingshots, Switches, RubberBumpers#, GameElements
+    from PlayfieldElements import PopBumpers, Slingshots, Switches, RubberBumpers, Lights, GameElements
 except ImportError as e:
-    from doozie.PlayfieldElements import PopBumpers, Slingshots, Switches, RubberBumpers#, GameElements
+    from doozie.PlayfieldElements import PopBumpers, Slingshots, Switches, RubberBumpers, Lights, GameElements
 
 class Playfield():
     def __init__(self, yaml_config):
@@ -13,9 +13,11 @@ class Playfield():
         self.Slingshots = Slingshots(self.my_dict)
         self.Switches = Switches(self.my_dict)
         self.RubberBumpers = RubberBumpers(self.my_dict)
-        # self.GameElements = GameElements(self.my_dict)
+        self.Lights = Lights(self.my_dict)
+        self.GameElements = GameElements(self.my_dict)
 
     #Todo: List the things
+    # Add Lights (have I got them all now)
     # Add the GameElements
         '''
         - Knocker

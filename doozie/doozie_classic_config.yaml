@@ -290,3 +290,124 @@ Bumpers:
     points_lit: 1
     points_unlit: 1
     starts_lit: False
+Lights:
+  X1Light:
+    type: 'light'
+    name: ' X1Light'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  X2Light:
+    type: 'light'
+    name: ' X2Light'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  X3Light:
+    type: 'light'
+    name: ' X3Light'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  X4Light:
+    type: 'light'
+    name: ' X4Light'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  X5Light:
+    type: 'light'
+    name: ' X5Light'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  X6Light:
+    type: 'light'
+    name: ' X6Light'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  X7Light:
+    type: 'light'
+    name: ' X7Light'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  X8Light:
+    type: 'light'
+    name: ' X8Light'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  LeftOutlaneSpecialLight:
+    type: 'light'
+    name: ' LeftOutlaneSpecialLight'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  RightOutlaneSpecialLight:
+    type: 'light'
+    name: ' RightOutlaneSpecialLight'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  AutoReplaySpecialLight:
+    type: 'light'
+    name: ' AutoReplaySpecialLight'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+  GateSpecialLight:
+    type: 'light'
+    name: ' GateSpecialLight'
+    led_color: 'white'
+    light_address: None
+    starts_lit: False
+GameElements:
+  Knocker:
+    type: 'gameelement'
+    name: 'KnockerGameElement'
+    switch_pin: None
+    relay_pin: None
+  BigBell:
+    type: 'gameelement'
+    name: 'KnockerGameElement'
+    switch_pin: None
+    relay_pin: None
+Tilt:
+  TiltBob:
+    type: 'TiltSwitch'
+    name: 'TiltBobSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 0
+    points_unlit: 0
+    starts_lit: False
+  TiltBall:
+    type: 'TiltSwitch'
+    name: 'TiltBallSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 0
+    points_unlit: 0
+    starts_lit: False
+  CoinDoorSlam:
+    type: 'TiltSwitch'
+    name: 'CoinDoorSlamSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 0
+    points_unlit: 0
+    starts_lit: False
+  PlayfieldSlam:
+    type: 'TiltSwitch'
+    name: 'PlayfieldSlamSwitch'
+    light_address: None
+    switch_pin: None
+    relay_pin: None
+    points_lit: 0
+    points_unlit: 0
+    starts_lit: False
